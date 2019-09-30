@@ -3,47 +3,9 @@
    [re-frame.core :as re-frame]
    [re-com.core :as re-com]
    [bloggy.subs :as subs]
+   [bloggy.ui.home_panel :refer [home-panel]]
+   [bloggy.ui.about_panel :refer [about-panel]]
    ))
-
-
-;; home
-
-(defn home-title []
-  (let [name (re-frame/subscribe [::subs/name])]
-    [re-com/title
-     :label (str "Hello from " @name ". This is the Home Page.")
-     :level :level1]))
-
-(defn link-to-about-page []
-  [re-com/hyperlink-href
-   :label "go to About Page"
-   :href "#/about"])
-
-(defn home-panel []
-  [re-com/v-box
-   :gap "1em"
-   :children [[home-title]
-              [link-to-about-page]
-              ]])
-
-
-;; about
-
-(defn about-title []
-  [re-com/title
-   :label "This is the About Page."
-   :level :level1])
-
-(defn link-to-home-page []
-  [re-com/hyperlink-href
-   :label "go to Home Page"
-   :href "#/"])
-
-(defn about-panel []
-  [re-com/v-box
-   :gap "1em"
-   :children [[about-title]
-              [link-to-home-page]]])
 
 
 ;; main
